@@ -47,8 +47,8 @@ exports.config = {
     ],
 
     suites: {
-        task1: [
-            './specs/task1/*.spec.js',
+        tasks: [
+            './specs/tasks/*.spec.js',
         ],
     },
 

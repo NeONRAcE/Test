@@ -4,12 +4,13 @@ const pageObject            = require('../../pages/pages').container.PageObject;
 const angularPage           = pageObject.getAngularPage();
 
 const commonHelper          = require('../../helpers/common.helper.js');
+const apiHelper             = require('../../helpers/api.helper');
 const angularData           = require('../../data/angular/index');
 
-describe('ANGULAR SPEC', () => {
+describe('TEST TASKS SPEC', () => {
 
-    const angularUrl        = angularData.urls.angularUrl;
-    const componentText     = angularData.searchData.componentText;
+    const urls              = angularData.urls;
+    const searchData        = angularData.searchData;
 
     afterAll(() => {
         commonHelper.clearAllData();
@@ -18,7 +19,7 @@ describe('ANGULAR SPEC', () => {
     describe('@task1 - Angular spec', () => {
 
         beforeAll(() => {
-            commonHelper.openUrl(angularUrl);
+            commonHelper.openUrl(urls.angularUrl);
         });
 
         afterAll(() => {
@@ -30,7 +31,7 @@ describe('ANGULAR SPEC', () => {
         });
 
         it('should fill search field and check results', () => {
-            angularPage.fillSearchField(componentText);
+            angularPage.fillSearchField(searchData.componentText);
             commonHelper.waitUntilElementVisible(angularPage.searchResults, '[Search results] is not visible');
         });
 
@@ -48,6 +49,34 @@ describe('ANGULAR SPEC', () => {
         it('should hide navigation menu', () => {
             angularPage.clickHideNavMenu();
             commonHelper.waitUntilElementInvisible(angularPage.sideNavMenu, '[Navigation menu] is still visible');
+        });
+
+    });
+
+    describe('@task2 - API spec', () => {
+
+        let pageCode;
+
+        beforeAll(() => {
+            commonHelper.openUrl(urls.googleUrl);
+        });
+
+        afterAll(() => {
+            commonHelper.clearAllData();
+        });
+
+        it('should get page code of google query', function (done) {
+            apiHelper.searchResults(searchData.angularText).then(function (value) {
+                pageCode = value;
+                done();
+            }).catch(function (error){
+                console.log('ERROR: ', error);
+                done(error);
+            });
+        });
+
+        it('should find angular page in response', () => {
+            expect(pageCode).toContain('https://angular.io');
         });
 
     });
