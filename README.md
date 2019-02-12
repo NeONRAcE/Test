@@ -21,6 +21,9 @@ Ran 5 of 7 specs
 5 specs, 0 failures
 Finished in 5.915 seconds
 
+
+
+
 Task 2 - Request lib required
 Console log:
 DevTools listening on ws://127.0.0.1:37133/devtools/browser/313c33b5-05d1-4fc8-9c00-47cbdbf676d6
