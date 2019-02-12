@@ -76,7 +76,7 @@ describe('TEST TASKS SPEC', () => {
         });
 
         it('should find angular page in response', () => {
-            expect(pageCode).toContain('https://angular.io');
+            expect(pageCode).toContain(urls.angularUrl);
         });
 
     });
