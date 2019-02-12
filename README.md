@@ -9,10 +9,10 @@ https://angular.io/
 
     @task1 - Angular spec
       √ should open angular page
-.      √ should fill search field and check results
-.      √ should clear search field and check no results data
-.      √ should enter "Get Started" section
-.      √ should hide navigation menu
+      √ should fill search field and check results
+      √ should clear search field and check no results data
+      √ should enter "Get Started" section
+      √ should hide navigation menu
 
 
 
@@ -32,7 +32,7 @@ https://www.google.ru/search
 
     @task2 - API spec
       √ should get page code of google query
-.      √ should find angular page in response
+      √ should find angular page in response
 
 
 
