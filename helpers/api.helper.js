@@ -1,5 +1,5 @@
 'use strict';
-const request       = require('request').defaults({jar: true});
+const request       = require('request');
 const googleData    = require('../data/angular/index');
 
 const ApiHelper = function () {
